@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3. Exploratory Data Analysis</title>
+    <style>
+        body { font-family: Arial; line-height: 1.6; margin: 20px; }
+        .code { 
+            background-color: #f4f4f4; 
+            padding: 10px; 
+            border-left: 3px solid #3498db;
+            font-family: monospace;
+        }
+        img { max-width: 100%; height: auto; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>3. Exploratory Data Analysis</h1>
+    
+    <div class="code">
+# Class distribution plot
+plt.figure(figsize=(8,5))
+sns.countplot(x='diagnosis', data=df)
+plt.title('Class Distribution')
+plt.show()
+    </div>
+    
+    <img src="https://www.researchgate.net/publication/336402347/figure/fig2/AS:812472659349505@1570719981053/Feature-distributions-by-class.png" alt="Class Distribution">
+    
+    <div class="code">
+# Correlation matrix
+plt.figure(figsize=(12,10))
+sns.heatmap(df.corr(), annot=False, cmap='coolwarm')
+plt.title('Feature Correlation Matrix')
+plt.show()
+    </div>
+    
+    <img src="https://www.researchgate.net/publication/336402347/figure/fig3/AS:812472659349505@1570719981054/Correlation-matrix-of-features.png" alt="Correlation Matrix">
+</body>
+</html>
