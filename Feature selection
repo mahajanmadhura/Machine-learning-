@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>4. Feature Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            overflow-x: auto;
+            font-family: monospace;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .output {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-left: 4px solid #1abc9c;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .diagram {
+            text-align: center;
+            margin: 25px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<h2>3. Feature Selection</h2>
+
+<div class="code">
+# Select top 10 features using ANOVA F-value
+X = df.drop(['target', 'diagnosis'], axis=1)
+y = df['target']
+
+selector = SelectKBest(score_func=f_classif, k=10)
+selector.fit(X, y)
+
+# Get selected features
+selected_features = X.columns[selector.get_support()]
+print("Selected features:")
+print(selected_features)
+
+# Plot feature importance scores
+plt.figure(figsize=(12, 6))
+scores = -np.log10(selector.pvalues_)
+plt.bar(X.columns, scores)
+plt.xticks(rotation=90)
+plt.title("Feature importance scores (-log10(p-value))")
+plt.ylabel("-log10(p-value)")
+plt.show()
+</div>
+
+<div class="output">
+Selected features:
+Index(['mean radius', 'mean perimeter', 'mean area', 'mean concavity',
+       'mean concave points', 'worst radius', 'worst perimeter', 'worst area',
+       'worst concavity', 'worst concave points'],
+      dtype='object')
+</div>
+
+<div class="diagram">
+    <img src="https://www.researchgate.net/publication/336402347/figure/fig4/AS:812472659349505@1570719981055/Feature-importance-scores.png" 
+         alt="Feature Importance Scores"
+         style="max-height: 500px;">
+    <p>Figure 4: Feature importance scores from ANOVA F-test</p>
+</div>
+
+</body>
+</html>
