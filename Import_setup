@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>1. Imports and Setup</title>
+    <style>
+        body { font-family: Arial; line-height: 1.6; margin: 20px; }
+        .code { 
+            background-color: #f4f4f4; 
+            padding: 10px; 
+            border-left: 3px solid #3498db;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>1. Imports and Setup</h1>
+    <div class="code">
+# Core libraries
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Scikit-learn components
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.feature_selection import SelectKBest, f_classif
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier 
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import (accuracy_score, precision_score,
+                           recall_score, f1_score,
+                           confusion_matrix, classification_report)
+from sklearn.pipeline import Pipeline
+from joblib import dump
+
+# Configuration
+np.random.seed(42)
+plt.style.use('seaborn')
+    </div>
+</body>
+</html>
