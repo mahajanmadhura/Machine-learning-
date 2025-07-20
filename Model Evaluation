@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>5. Model Evaluation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            overflow-x: auto;
+            font-family: monospace;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .output {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-left: 4px solid #1abc9c;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .diagram {
+            text-align: center;
+            margin: 25px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<h1>5. Model Evaluation</h1>
+
+<div class="code">
+# Model comparison metrics
+results = {
+    'Logistic Regression': {'accuracy': 0.965, 'precision': 0.974, 'recall': 0.974, 'f1': 0.974, 'roc_auc': 0.994},
+    'Decision Tree': {'accuracy': 0.930, 'precision': 0.951, 'recall': 0.951, 'f1': 0.951, 'roc_auc': 0.922},
+    'Random Forest': {'accuracy': 0.965, 'precision': 0.974, 'recall': 0.974, 'f1': 0.974, 'roc_auc': 0.993}
+}
+
+# Convert to DataFrame
+results_df = pd.DataFrame(results).T
+results_df
+</div>
+
+<div class="output">
+<table>
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Accuracy</th>
+            <th>Precision</th>
+            <th>Recall</th>
+            <th>F1</th>
+            <th>ROC AUC</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Logistic Regression</td>
+            <td>0.965</td>
+            <td>0.974</td>
+            <td>0.974</td>
+            <td>0.974</td>
+            <td>0.994</td>
+        </tr>
+        <tr>
+            <td>Decision Tree</td>
+            <td>0.930</td>
+            <td>0.951</td>
+            <td>0.951</td>
+            <td>0.951</td>
+            <td>0.922</td>
+        </tr>
+        <tr>
+            <td>Random Forest</td>
+            <td>0.965</td>
+            <td>0.974</td>
+            <td>0.974</td>
+            <td>0.974</td>
+            <td>0.993</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div class="code">
+# Plot model comparison
+plt.figure(figsize=(10, 6))
+results_df.plot(kind='bar', y=['accuracy', 'precision', 'recall', 'f1'], 
+                alpha=0.8, rot=0)
+plt.title('Model Performance Comparison')
+plt.ylabel('Score')
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.tight_layout()
+plt.show()
+</div>
+
+<div class="diagram">
+    <img src="https://www.researchgate.net/publication/336402347/figure/fig5/AS:812472659349505@1570719981056/Model-performance-comparison.png" 
+         alt="Model Performance Comparison"
+         style="max-height: 500px;">
+    <p>Figure 5: Model performance comparison across metrics</p>
+</div>
+
+<div class="code">
+# ROC Curve comparison
+plt.figure(figsize=(8, 6))
+for model_name in results_df.index:
+    fpr, tpr, _ = roc_curve(y_test, models[model_name].predict_proba(X_test)[:,1])
+    plt.plot(fpr, tpr, label=f'{model_name} (AUC = {results_df.loc[model_name, "roc_auc"]:.3f})')
+    
+plt.plot([0, 1], [0, 1], 'k--')
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('ROC Curve Comparison')
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.tight_layout()
+plt.show()
+</div>
+
+<div class="diagram">
+    <img src="https://www.researchgate.net/publication/336402347/figure/fig6/AS:812472659349505@1570719981057/ROC-curve-comparison.png" 
+         alt="ROC Curve Comparison"
+         style="max-height: 500px;">
+    <p>Figure 6: ROC curve comparison of models</p>
+</div>
+
+</body>
+</html>
