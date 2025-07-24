@@ -38,3 +38,6 @@
 
 📚 This project serves as a well-structured educational tool, showcasing machine learning logic through a front-end presentation with no additional frameworks or programming interfaces used in the output files.
 
+*OUTPUT*
+![Image](https://github.com/user-attachments/assets/b00f95f5-b7b8-4a07-a132-917891b5da80)
+ -Model training workflow diagram showing the pipeline process-
