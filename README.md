@@ -38,19 +38,19 @@
 
 📚 This project serves as a well-structured educational tool, showcasing machine learning logic through a front-end presentation with no additional frameworks or programming interfaces used in the output files.
 
-**OUTPUT**-1
+**OUTPUT-1**
 -Model training workflow diagram showing the pipeline process-
 ![Image](https://github.com/user-attachments/assets/b00f95f5-b7b8-4a07-a132-917891b5da80)
 
-**OUTPUT**-2 -Class distribution plot-
+**OUTPUT-2** -Class distribution plot-
 
 ![Image](https://github.com/user-attachments/assets/ca8b8cd8-6cd6-4ce6-9863-ee94cb0facd0)
 
-**OUTPUT**-3
+**OUTPUT-3**
 -Correlation matrix-
 ![Image](https://github.com/user-attachments/assets/d80479ba-e4d8-4d12-9603-1871303c3ee1)
 
-**OUTPUT**-4
+**OUTPUT-4**
 -Feature importance scores from ANOVA F-test-
 ![Image](https://github.com/user-attachments/assets/33272602-7f72-49e8-bb4f-90842c49c9af)
 
