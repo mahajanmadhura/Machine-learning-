@@ -43,8 +43,8 @@ OUTPUT-1
 ![Image](https://github.com/user-attachments/assets/b00f95f5-b7b8-4a07-a132-917891b5da80)
 
 OUTPUT-2
-![Image](https://github.com/user-attachments/assets/ca8b8cd8-6cd6-4ce6-9863-ee94cb0facd0)
 -Class distribution plot-
+![Image](https://github.com/user-attachments/assets/ca8b8cd8-6cd6-4ce6-9863-ee94cb0facd0)
 
 OUTPUT-3
 -Correlation matrix-
